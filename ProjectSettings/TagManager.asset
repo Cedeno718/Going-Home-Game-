@@ -11,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Player
+  - Background
+  - Boucing
+  - Enemies
   - 
   - 
   - 
@@ -44,11 +44,14 @@ TagManager:
   - name: Background
     uniqueID: 1480782985
     locked: 0
+  - name: Water
+    uniqueID: 173718571
+    locked: 0
   - name: Platform
     uniqueID: 630697841
     locked: 0
-  - name: Water
-    uniqueID: 173718571
+  - name: Enemies
+    uniqueID: 2787818867
     locked: 0
   - name: Player
     uniqueID: 3406026567
