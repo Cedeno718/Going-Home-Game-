@@ -16,7 +16,7 @@ TagManager:
   - Background
   - Boucing
   - Enemies
-  - 
+  - Hazards
   - 
   - 
   - 
@@ -44,7 +44,7 @@ TagManager:
   - name: Background
     uniqueID: 1480782985
     locked: 0
-  - name: Water
+  - name: Hazards
     uniqueID: 173718571
     locked: 0
   - name: Platform

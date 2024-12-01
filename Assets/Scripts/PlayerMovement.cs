@@ -95,9 +95,18 @@ public class PlayerMovement : MonoBehaviour
 
      void Die()
     {
+        if (myCircleCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")))
+        {
+            isAlive = false;
+            myAnimator.SetTrigger("Dying");
+        }
+    }
+    void Capture()
+    {
         if (myCircleCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
         {
             isAlive = false;
+            myAnimator.SetTrigger("Capture");
         }
     }
 
