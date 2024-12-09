@@ -25,7 +25,7 @@ public class LevelExit : MonoBehaviour
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
             // Load the next scene (next room)
-            SceneManager.LoadScene("Start Scene");
+            SceneManager.LoadScene("Level 2");
         }
     }
 }

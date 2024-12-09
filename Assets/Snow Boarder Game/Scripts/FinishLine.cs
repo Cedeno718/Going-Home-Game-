@@ -23,6 +23,6 @@ public class FinishLine : MonoBehaviour
    void ReloadScene()
    {
       Debug.Log("AlrightAlrightAlright ;)");
-      SceneManager.LoadScene(0);
+      SceneManager.LoadScene("Start Scene");
    }
 }
