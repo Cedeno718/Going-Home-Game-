@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; // Import the SceneManager to handle scene transitions
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -12,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     Animator myAnimator;                     // Reference to the Animator
     CircleCollider2D myCircleCollider;       // Reference to the ground-check collider
     BoxCollider2D myFeetCollider;
+
+    public FishManager fm;
 
     bool isAlive = true;
 
@@ -32,10 +35,7 @@ public class PlayerMovement : MonoBehaviour
         Run();
         FlipSprite(); // Ensures the player faces the correct direction
         Die();
-
-
-
-        // CheckIfJumping();
+        Capture();
     }
 
     void OnMove(InputValue value)
@@ -93,14 +93,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-     void Die()
+    void Die()
     {
         if (myCircleCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")))
         {
             isAlive = false;
-            myAnimator.SetTrigger("Dying");
+            myAnimator.SetTrigger("Dying"); // Trigger the dying animation
+            
+            // After the animation, load the "Lose Scene"
+            Invoke("LoadLoseScene", 1f); // 1f delay to wait for animation to play
         }
     }
+
     void Capture()
     {
         if (myCircleCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
@@ -109,6 +113,20 @@ public class PlayerMovement : MonoBehaviour
             myAnimator.SetTrigger("Capture");
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(other.gameObject.CompareTag("Fish"))
+        {
+            fm.fishCount++;
+        }
+    }
+
+    void LoadLoseScene()
+    {
+        SceneManager.LoadScene("You Lose Scene"); // Load the Lose Scene when the player dies
+    }
+}
 
 
     // void CheckIfJumping()
@@ -119,4 +137,4 @@ public class PlayerMovement : MonoBehaviour
     //     // Update the "isJumping" animator parameter
     //     myAnimator.SetBool("isJumping", playerHasVerticalSpeed);
     // }
-}
+

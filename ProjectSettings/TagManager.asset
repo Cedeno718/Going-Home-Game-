@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ground
+  - Enemy
+  - Cat
+  - Fish
   layers:
   - Default
   - TransparentFX
@@ -17,7 +21,7 @@ TagManager:
   - Boucing
   - Enemies
   - Hazards
-  - 
+  - Interactables
   - 
   - 
   - 
@@ -52,6 +56,9 @@ TagManager:
     locked: 0
   - name: Enemies
     uniqueID: 2787818867
+    locked: 0
+  - name: Interactables
+    uniqueID: 3181168713
     locked: 0
   - name: Player
     uniqueID: 3406026567
